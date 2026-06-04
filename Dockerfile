@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 # Copy the website
 COPY index.html /usr/share/nginx/html/index.html
+RUN chmod 644 /usr/share/nginx/html/index.html
 
 # Configure nginx to listen on port 8080 (Fly.io requirement)
 RUN sed -i 's/listen\s*80;/listen 8080;/g' /etc/nginx/conf.d/default.conf && \
