@@ -18,7 +18,7 @@
 
 /* ── Reset ──────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; border: 0; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 80px; /* offset for fixed 64px nav + 16px breathing room */ }
 body {
   background-color: var(--paper);
   color: var(--ink);
@@ -96,6 +96,8 @@ button { cursor: pointer; }
   color: var(--ink-mute);
   transition: color 0.3s;
   cursor: pointer;
+  min-height: 44px; /* tap target */
+  padding: 0 2px;
 }
 .btn-ghost:hover { color: var(--ink); }
 
@@ -134,6 +136,7 @@ button { cursor: pointer; }
   height: 64px;
   display: flex;
   align-items: center;
+  overflow: hidden; /* prevent nav-inner overflow from causing horizontal scroll */
   background-color: rgba(251,250,247,0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -141,11 +144,14 @@ button { cursor: pointer; }
   transition: box-shadow 0.3s;
 }
 .nav.scrolled { box-shadow: 0 1px 12px rgba(26,24,19,0.06); }
+/* ensure wrap fills nav flex container correctly */
+.nav > .wrap { width: 100%; min-width: 0; }
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  min-width: 0; /* allow flex children to shrink */
 }
 .nav-wordmark {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -164,7 +170,8 @@ button { cursor: pointer; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  flex-shrink: 0;
 }
 .nav-link {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -174,10 +181,25 @@ button { cursor: pointer; }
   letter-spacing: 0.16em;
   color: var(--ink-mute);
   transition: color 0.2s;
+  /* ensure tap target is at least 44px tall */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
 }
 .nav-link:hover, .nav-link.active { color: var(--ink); }
 /* CTA sits flush in the flex gap — no extra margin needed */
-.nav-cta { margin-left: 0; }
+.nav-cta { margin-left: 0; flex-shrink: 0; }
+
+/* On very narrow screens abbreviate CTA label */
+@media (max-width: 479px) {
+  .nav-cta .nav-cta-full { display: none; }
+  .nav-cta .nav-cta-short { display: inline; }
+}
+@media (min-width: 480px) {
+  .nav-cta .nav-cta-full { display: inline; }
+  .nav-cta .nav-cta-short { display: none; }
+}
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
@@ -367,6 +389,9 @@ button { cursor: pointer; }
 @keyframes ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
 }
 
 /* ── Questions ──────────────────────────────────────────────────────────── */
@@ -734,6 +759,8 @@ button { cursor: pointer; }
     max-width: 100%;
     width: 100%;
     padding: 1.75rem 1.25rem 2rem;
+    /* safe-area: keep content above home indicator */
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
     border-radius: 0;
     transform: translateY(24px);
     max-height: 92vh;
@@ -759,11 +786,18 @@ button { cursor: pointer; }
   color: var(--ink-mute);
   font-size: 1.25rem;
   line-height: 1;
-  padding: 0.25rem;
-  margin-top: -0.25rem;
+  /* ensure 44×44 tap target */
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: -0.5rem;
+  margin-right: -0.5rem;
   transition: color 0.2s;
   flex-shrink: 0;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .modal-close:hover { color: var(--ink); }
 .modal-intro {
@@ -791,7 +825,7 @@ button { cursor: pointer; }
   background-color: var(--paper);
   border: 1px solid rgba(26,24,19,0.2);
   font-family: 'Manrope', system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 16px; /* ≥16px prevents iOS auto-zoom on focus */
   color: var(--ink);
   transition: border-color 0.2s;
   appearance: none;
