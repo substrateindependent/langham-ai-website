@@ -1,15 +1,14 @@
 /* Langham.ai — Design System */
 
-/* ── Fonts ─────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ── Fonts (loaded via HTML <link> for non-render-blocking) ───────────── */
 
 /* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root {
   --ink:          #1a1813;
   --ink-soft:     #5f5a50;
-  --ink-mute:     #8b8478;
+  --ink-mute:     #5e5a52; /* darkened from #8b8478 for WCAG AA contrast */
   --ink-faint:    #aba69a;
-  --brass:        #8C6F46;
+  --brass:        #7a5830; /* darkened from #8C6F46 for WCAG AA contrast */
   --brass-deep:   #6e5631;
   --paper:        #fbfaf7;
   --cream:        #f3f1ea;

@@ -81,6 +81,7 @@
   function openModal() {
     overlay.classList.add('open');
     overlay.removeAttribute('aria-hidden');
+    overlay.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
     overlay.addEventListener('keydown', trapFocus);
     // Focus first field after transition
@@ -97,6 +98,7 @@
   function closeModal() {
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('inert', '');
     document.body.style.overflow = '';
     overlay.removeEventListener('keydown', trapFocus);
     // Return focus to trigger

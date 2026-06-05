@@ -15,23 +15,31 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Preconnect to Google Fonts to reduce DNS + TLS latency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Async-load fonts to avoid render-blocking -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
 <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
+<a class="sr-only" href="#main-content">Skip to main content</a>
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
     <div class="nav-inner">
       <a href="/" class="nav-wordmark" aria-label="Langham home">Langham<span class="period" aria-hidden="true">.</span></a>
       <div class="nav-links">
         <a href="/proof/" class="nav-link">Proof</a>
-        <button class="btn-primary nav-cta" data-modal="contact" aria-haspopup="dialog"><span class="nav-cta-full">Start a conversation</span><span class="nav-cta-short" aria-hidden="true">Contact</span></button>
+        <button class="btn-primary nav-cta" data-modal="contact" aria-haspopup="dialog" aria-label="Start a conversation"><span class="nav-cta-full" aria-hidden="true">Start a conversation</span><span class="nav-cta-short" aria-hidden="true">Contact</span></button>
       </div>
     </div>
   </div>
 </nav>
 
+<main id="main-content">
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="wrap">
@@ -298,6 +306,8 @@
   </div>
 </section>
 
+</main><!-- end #main-content -->
+
 <!-- ── Footer ─────────────────────────────────────────────────────────────── -->
 <footer class="footer" role="contentinfo">
   <div class="wrap">
@@ -309,7 +319,7 @@
 </footer>
 
 <!-- ── Contact Modal ──────────────────────────────────────────────────────── -->
-<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" inert>
   <div class="modal-card">
     <div class="modal-header">
       <h2 id="modal-title" class="modal-title display">Start a conversation.</h2>
@@ -357,6 +367,6 @@
   </div>
 </div>
 
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
