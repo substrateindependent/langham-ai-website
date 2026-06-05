@@ -190,14 +190,20 @@ button { cursor: pointer; }
 /* CTA sits flush in the flex gap — no extra margin needed */
 .nav-cta { margin-left: 0; flex-shrink: 0; }
 
-/* On very narrow screens abbreviate CTA label */
+/* On very narrow screens abbreviate CTA label visually but keep full text accessible */
+.nav-cta .nav-cta-short { display: none; }
 @media (max-width: 479px) {
-  .nav-cta .nav-cta-full { display: none; }
-  .nav-cta .nav-cta-short { display: inline; }
-}
-@media (min-width: 480px) {
-  .nav-cta .nav-cta-full { display: inline; }
-  .nav-cta .nav-cta-short { display: none; }
+  /* hide full label visually but keep it accessible for screen readers */
+  .nav-cta .nav-cta-full {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .nav-cta .nav-cta-short { display: inline; position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
 }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
