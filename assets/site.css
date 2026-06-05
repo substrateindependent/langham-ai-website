@@ -17,7 +17,7 @@
 
 /* ── Reset ──────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; border: 0; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 17px; scroll-padding-top: 80px; /* offset for fixed 64px nav + 16px breathing room */ }
+html { scroll-behavior: smooth; font-size: 18px; scroll-padding-top: 80px; /* offset for fixed 64px nav + 16px breathing room */ }
 body {
   background-color: var(--paper);
   color: var(--ink);
@@ -219,19 +219,19 @@ button { cursor: pointer; }
 }
 .hero-overline { margin-bottom: 1.75rem; }
 .hero-h1 {
-  font-size: clamp(2.6rem, 5.5vw, 4.25rem);
+  font-size: clamp(2.8rem, 6vw, 4.75rem);
   max-width: 22ch;
   margin-bottom: 1.5rem;
 }
 .hero-body {
-  font-size: 19px;
-  line-height: 1.625;
+  font-size: 20px;
+  line-height: 1.65;
   color: var(--ink-soft);
   max-width: 42rem;
   margin-bottom: 1rem;
 }
 .hero-kicker {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--ink-mute);
   max-width: 38rem;
@@ -301,7 +301,7 @@ button { cursor: pointer; }
 /* ── Sections ───────────────────────────────────────────────────────────── */
 .section-overline { margin-bottom: 1.25rem; }
 .section-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
   margin-bottom: 2rem;
 }
 .section-intro {
@@ -443,7 +443,7 @@ button { cursor: pointer; }
   max-width: 44rem;
 }
 .retainer-p {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--ink-soft);
   margin-bottom: 1.25rem;
@@ -477,7 +477,7 @@ button { cursor: pointer; }
 }
 .math-eq-text .lt { color: var(--brass); }
 .math-body {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--ink-soft);
   max-width: 44rem;
@@ -485,7 +485,7 @@ button { cursor: pointer; }
 
 /* ── The Work ───────────────────────────────────────────────────────────── */
 .work-intro {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--ink-soft);
   max-width: 44rem;
@@ -891,12 +891,12 @@ button { cursor: pointer; }
   margin-bottom: 1.25rem; /* space between PROOF label and h1 */
 }
 .proof-h1 {
-  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
   max-width: 28ch;
   margin-bottom: 1.25rem;
 }
 .proof-sub {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--ink-soft);
   max-width: 44rem;
