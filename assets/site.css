@@ -7,7 +7,7 @@
   --ink:          #1a1813;
   --ink-soft:     #5f5a50;
   --ink-mute:     #5e5a52; /* darkened from #8b8478 for WCAG AA contrast */
-  --ink-faint:    #aba69a;
+  --ink-faint:    #64615a; /* darkened from #aba69a for WCAG AA contrast */
   --brass:        #7a5830; /* darkened from #8C6F46 for WCAG AA contrast */
   --brass-deep:   #6e5631;
   --paper:        #fbfaf7;
