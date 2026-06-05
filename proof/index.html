@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof &#8212; Langham</title>
+  <meta name="description" content="Live systems, current builds, and the AI agents that run our own company — updated as the work ships.">
+  <meta property="og:title" content="Proof &#8212; Langham">
+  <meta property="og:description" content="Live systems, current builds, and the AI agents that run our own company — updated as the work ships.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://langham.ai/proof/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="/" class="nav-wordmark" aria-label="Langham home">Langham<span class="period" aria-hidden="true">.</span></a>
+      <div class="nav-links">
+        <a href="/proof/" class="nav-link active" aria-current="page">Proof</a>
+        <button class="btn-primary nav-cta" data-modal="contact" aria-haspopup="dialog">Start a conversation</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── /proof Hero ───────────────────────────────────────────────────────── -->
+<section class="proof-hero">
+  <div class="wrap">
+    <div class="overline reveal">PROOF</div>
+    <h1 class="display proof-h1 reveal">What&#8217;s running right now.</h1>
+    <p class="proof-sub reveal">Live systems, current builds, and the AI agents that run our own company &#8212; updated as the work ships. The things we&#8217;d show you in a first meeting, public.</p>
+  </div>
+</section>
+
+<div class="proof-rule rule">
+  <div class="wrap"></div>
+</div>
+
+<!-- ── Cornerstones ──────────────────────────────────────────────────────── -->
+<!-- Hidden at launch: no published pieces yet. Unhide when content is added. -->
+<section class="section cornerstone-section cornerstone-empty" id="cornerstones" aria-labelledby="h-cornerstones">
+  <div class="wrap">
+    <div class="overline reveal">CORNERSTONES</div>
+    <div class="cornerstone-grid reveal" id="cornerstone-grid">
+      <!-- cornerstone cards will be inserted here when content is approved -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Build Log ─────────────────────────────────────────────────────────── -->
+<section class="section log-section" id="log" aria-labelledby="h-log">
+  <div class="wrap">
+    <div class="overline reveal">THE LOG</div>
+    <h2 id="h-log" class="sr-only">Build log</h2>
+
+    <!-- Log entries appear here once Glenn approves them -->
+    <!-- Entry template (do not publish; for reference only):
+    <article class="log-entry reveal">
+      <div class="log-entry-header">
+        <span class="log-entry-date">JUN 2</span>
+        <span class="log-entry-tag">FLEET</span>
+      </div>
+      <h3 class="log-entry-headline display">Charlie closed the May books unassisted.</h3>
+      <p class="log-entry-body">…</p>
+      <p class="log-entry-sig">&#8212; G.</p>
+    </article>
+    -->
+
+    <div class="log-empty reveal" id="log-empty">
+      <em>The first entries are being reviewed. Check back soon.</em>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-wordmark">Langham<span class="period">.</span></div>
+      <p class="footer-legal">&#169; 2024 Fieldcrest Advisors LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Contact Modal ──────────────────────────────────────────────────────── -->
+<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2 id="modal-title" class="modal-title display">Start a conversation.</h2>
+      <button class="modal-close" aria-label="Close dialog">&#215;</button>
+    </div>
+    <p class="modal-intro">Tell us a little about your business. Glenn reads every one of these personally &#8212; and if we&#8217;re not the right fit, we&#8217;ll say so.</p>
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="9155cd14-df09-413e-a618-5cdb11e47fda">
+      <input type="hidden" name="subject" value="[Langham lead] {name} — {company}">
+      <input type="hidden" name="from_name" value="Langham Contact Form">
+      <!-- Honeypot -->
+      <div class="honeypot" aria-hidden="true">
+        <label for="website-field-p">Leave this blank</label>
+        <input type="text" id="website-field-p" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="field-label" for="field-name-p">NAME</label>
+        <input class="field-input" type="text" id="field-name-p" name="name" required autocomplete="name" placeholder="">
+        <div class="field-error" role="alert">Add your name.</div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="field-email-p">EMAIL</label>
+        <input class="field-input" type="email" id="field-email-p" name="email" required autocomplete="email" placeholder="">
+        <div class="field-error" role="alert">Add your email and we&#8217;re set.</div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="field-company-p">COMPANY</label>
+        <input class="field-input" type="text" id="field-company-p" name="company" required autocomplete="organization" placeholder="">
+        <div class="field-error" role="alert">Add your company name.</div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="field-phone-p">PHONE <span style="color:var(--ink-faint);font-size:9px">(OPTIONAL)</span></label>
+        <input class="field-input" type="tel" id="field-phone-p" name="phone" autocomplete="tel" placeholder="">
+      </div>
+      <div class="field">
+        <label class="field-label" for="field-message-p">WHAT&#8217;S PROMPTING THIS?</label>
+        <textarea class="field-textarea" id="field-message-p" name="message" required placeholder="A sentence or two about your business and what&#8217;s got you thinking about it."></textarea>
+        <div class="field-error" role="alert">Tell us a little about what&#8217;s prompting this.</div>
+      </div>
+      <button type="submit" class="btn-primary modal-submit">START THE CONVERSATION</button>
+    </form>
+    <div class="modal-success" aria-live="polite">
+      <p class="modal-success-text display">Got it. You&#8217;ll hear from Glenn within two business days.</p>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/site.js"></script>
+</body>
+</html>
