@@ -131,7 +131,7 @@ button { cursor: pointer; }
   left: 0;
   right: 0;
   z-index: 50;
-  height: 72px;
+  height: 64px;
   display: flex;
   align-items: center;
   background-color: rgba(251,250,247,0.92);
@@ -154,6 +154,8 @@ button { cursor: pointer; }
   letter-spacing: -0.01em;
   color: var(--ink);
   line-height: 1;
+  /* ensure wordmark sits at the same left edge as page content */
+  margin-left: 0;
 }
 .nav-wordmark .period { color: var(--brass); }
 @media (max-width: 639px) {
@@ -162,7 +164,7 @@ button { cursor: pointer; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .nav-link {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -174,15 +176,19 @@ button { cursor: pointer; }
   transition: color 0.2s;
 }
 .nav-link:hover, .nav-link.active { color: var(--ink); }
-.nav-cta { margin-left: 1rem; }
+/* CTA sits flush in the flex gap — no extra margin needed */
+.nav-cta { margin-left: 0; }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
-  padding-top: 10rem;
-  padding-bottom: 6rem;
+  padding-top: 7.5rem; /* nav=64px + comfortable breathing room */
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .hero { padding-top: 8.5rem; padding-bottom: 6rem; }
 }
 @media (min-width: 1024px) {
-  .hero { padding-top: 13rem; padding-bottom: 7rem; }
+  .hero { padding-top: 9.5rem; padding-bottom: 7rem; }
 }
 .hero-overline { margin-bottom: 1.75rem; }
 .hero-h1 {
@@ -833,8 +839,17 @@ button { cursor: pointer; }
 
 /* ── /proof page ────────────────────────────────────────────────────────── */
 .proof-hero {
-  padding-top: 10rem;
+  padding-top: 7.5rem; /* match hero top padding */
   padding-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .proof-hero { padding-top: 8.5rem; }
+}
+@media (min-width: 1024px) {
+  .proof-hero { padding-top: 9.5rem; }
+}
+.proof-hero .overline {
+  margin-bottom: 1.25rem; /* space between PROOF label and h1 */
 }
 .proof-h1 {
   font-size: clamp(2rem, 4.5vw, 3rem);
